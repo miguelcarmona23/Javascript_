@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@900&display=swap");
+*::after,
+*::before,
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #e0e0e0;
+  font-family: "Overpass", sans-serif;
+}
+
+.container {
+  width: 100%;
+}
+
+.clock {
+  width: 30rem;
+  height: 30rem;
+  margin: 5rem auto;
+  padding: 1rem;
+  background-color: #333;
+  border: 2rem solid white;
+  border-radius: 25%;
+  -webkit-box-shadow: 2px 0px 10px 2px #b3b3b3, 0px 0px 8px 0px black inset;
+          box-shadow: 2px 0px 10px 2px #b3b3b3, 0px 0px 8px 0px black inset;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: fit-content(100%);
+      grid-template-rows: fit-content(100%);
+  -ms-grid-columns: fit-content(100%);
+      grid-template-columns: fit-content(100%);
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  grid-gap: 1rem;
+      grid-template-areas: ". year year year year ." "month month month num num num" "analog analog analog num num num" "analog analog analog day day day";
+}
+
+.clock__item {
+  border: 1px solid black;
+  -webkit-box-shadow: -8px 0px 8px 0px black inset;
+          box-shadow: -8px 0px 8px 0px black inset;
+}
+
+.clock__year {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 4;
+  grid-area: year;
+  font-size: 3.2rem;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (auto-fit)[2];
+      grid-template-rows: repeat(2, auto-fit);
+      grid-template-areas: "one two three four" "one two three four";
+}
+
+.clock__year--item {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.clock__year--01 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+.clock__year--02 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: two;
+}
+
+.clock__year--03 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: three;
+}
+
+.clock__year--04 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 4;
+  grid-area: four;
+}
+
+.clock__year--05 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+.clock__year--06 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: two;
+}
+
+.clock__year--07 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: three;
+}
+
+.clock__year--08 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 4;
+  grid-area: four;
+}
+
+.clock__month {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: month;
+  font-size: 3.2rem;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (auto-fit)[2];
+      grid-template-rows: repeat(2, auto-fit);
+      grid-template-areas: "one two three" "one two three";
+}
+
+.clock__month--item {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.clock__month--01 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+.clock__month--02 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: two;
+}
+
+.clock__month--03 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: three;
+}
+
+.clock__month--04 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+.clock__month--05 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: two;
+}
+
+.clock__month--06 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: three;
+}
+
+.clock__day-numbers {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 3;
+  grid-area: num;
+  font-size: 5.8rem;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (auto-fit)[2];
+      grid-template-rows: repeat(2, auto-fit);
+      grid-template-areas: "one two" "one two";
+}
+
+.clock__day-numbers--item {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.clock__day-numbers--01 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+.clock__day-numbers--02 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: two;
+}
+
+.clock__day-numbers--03 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+.clock__day-numbers--04 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: two;
+}
+
+.clock__day-letters {
+  -ms-grid-row: 4;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 3;
+  grid-area: day;
+  font-size: 3rem;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  -webkit-transform: translate(-1rem, -2rem);
+          transform: translate(-1rem, -2rem);
+  width: 110%;
+  background-color: #70D1FE;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (auto-fit)[2];
+      grid-template-rows: repeat(2, auto-fit);
+      grid-template-areas: "one two three" "one two three";
+}
+
+.clock__day-letters--item {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.clock__day-letters--01 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+.clock__day-letters--02 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: two;
+}
+
+.clock__day-letters--03 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: three;
+}
+
+.clock__day-letters--04 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+.clock__day-letters--05 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: two;
+}
+
+.clock__day-letters--06 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: three;
+}
+
+.clock__analog {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: analog;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  position: relative;
+}
+
+.clock__analog--hours, .clock__analog--minutes, .clock__analog--seconds {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transform-origin: 100%;
+          transform-origin: 100%;
+  -webkit-box-shadow: 2px 0px 5px 0px black;
+          box-shadow: 2px 0px 5px 0px black;
+}
+
+.clock__analog--hours {
+  width: 40%;
+  left: 10%;
+  height: 5px;
+  background-color: white;
+  border-radius: 2.5rem;
+}
+
+.clock__analog--minutes {
+  width: 45%;
+  left: 5%;
+  height: 5px;
+  background-color: white;
+  border-radius: 2.5rem;
+}
+
+.clock__analog--seconds {
+  width: 45%;
+  left: 5%;
+  height: 3px;
+  background-color: red;
+  border-radius: 2.5rem;
+}
+/*# sourceMappingURL=styles.css.map */

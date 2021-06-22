@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@900&display=swap");
+
+*::after,
+*::before,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: #e0e0e0;
+    font-family: "Overpass", sans-serif;
+}
+
+.container {
+    width: 100%;
+}
+
+@mixin gridItem($area, $size) {
+    grid-area: $area;
+    font-size: $size;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+@mixin hand($width, $left, $height, $backg) {
+    width: $width;
+    left: $left;
+    height: $height;
+    background-color: $backg;
+    border-radius: 2.5rem;
+}
+
+.clock {
+    width: 30rem;
+    height: 30rem;
+    margin: 5rem auto;
+    padding: 1rem;
+    background-color: #333;
+    border: 2rem solid white;
+    border-radius: 25%;
+    box-shadow: 2px 0px 10px 2px darken(white, 30%), 0px 0px 8px 0px black inset;
+    display: grid;
+    grid-template-rows: fit-content(100%);
+    grid-template-columns: fit-content(100%);
+    align-items: start;
+    justify-content: space-evenly;
+    grid-gap: 1rem;
+    grid-template-areas:
+        ". year year year year ."
+        "month month month num num num"
+        "analog analog analog num num num"
+        "analog analog analog day day day";
+
+    &__item {
+        border: 1px solid black;
+        box-shadow: -8px 0px 8px 0px black inset;
+    }
+
+    &__year {
+        @include gridItem(year, 3.2rem);
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, auto-fit);
+        grid-template-areas:
+            "one two three four"
+            "one two three four";
+
+        &--item {
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        &--01 {
+            grid-area: one;
+        }
+        &--02 {
+            grid-area: two;
+        }
+        &--03 {
+            grid-area: three;
+        }
+        &--04 {
+            grid-area: four;
+        }
+        &--05 {
+            grid-area: one;
+        }
+        &--06 {
+            grid-area: two;
+        }
+        &--07 {
+            grid-area: three;
+        }
+        &--08 {
+            grid-area: four;
+        }
+    }
+
+    &__month {
+        @include gridItem(month, 3.2rem);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto-fit);
+        grid-template-areas:
+            "one two three"
+            "one two three";
+
+        &--item {
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        &--01 {
+            grid-area: one;
+        }
+        &--02 {
+            grid-area: two;
+        }
+        &--03 {
+            grid-area: three;
+        }
+        &--04 {
+            grid-area: one;
+        }
+        &--05 {
+            grid-area: two;
+        }
+        &--06 {
+            grid-area: three;
+        }
+    }
+
+    &__day-numbers {
+        @include gridItem(num, 5.8rem);
+        justify-content: flex-end;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto-fit);
+        grid-template-areas:
+            "one two"
+            "one two";
+
+        &--item {
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        &--01 {
+            grid-area: one;
+        }
+        &--02 {
+            grid-area: two;
+        }
+        &--03 {
+            grid-area: one;
+        }
+        &--04 {
+            grid-area: two;
+        }
+    }
+
+    &__day-letters {
+        @include gridItem(day, 3rem);
+        transform: translate(-1rem, -2rem);
+        width: 110%;
+        background-color: #70D1FE;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto-fit);
+        grid-template-areas:
+            "one two three"
+            "one two three";
+
+        &--item {
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        &--01 {
+            grid-area: one;
+        }
+        &--02 {
+            grid-area: two;
+        }
+        &--03 {
+            grid-area: three;
+        }
+        &--04 {
+            grid-area: one;
+        }
+        &--05 {
+            grid-area: two;
+        }
+        &--06 {
+            grid-area: three;
+        }
+    }
+
+    &__analog {
+        grid-area: analog;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        position: relative;
+
+        &--hours,
+        &--minutes,
+        &--seconds {
+            position: absolute;
+            top: 50%;
+            transform: rotate(90deg);
+            transform-origin: 100%;
+            box-shadow: 2px 0px 5px 0px black;
+        }
+
+        &--hours {
+            @include hand(40%, 10%, 5px, white);
+        }
+
+        &--minutes {
+            @include hand(45%, 5%, 5px, white);
+        }
+
+        &--seconds {
+            @include hand(45%, 5%, 3px, red);
+        }
+    }
+}
